@@ -4,32 +4,54 @@ class MainClass
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Напишите свой любимый цвет на английском языке с маленькой буквы");
+        int t = 0;
 
-        var color = Console.ReadLine();
-
-        if (color == "red")
+        while (true)
         {
-            Console.BackgroundColor = ConsoleColor.Red;
-            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine("Напишите свой любимый цвет на английском языке с маленькой буквы");
+            Console.WriteLine(t);
 
-            Console.WriteLine("Your color is red!");
-        }
+            var text = Console.ReadLine();
 
-        else if (color == "green")
-        {
-            Console.BackgroundColor = ConsoleColor.Green;
-            Console.ForegroundColor = ConsoleColor.Black;
+            if (text == "stop")
+            { 
+                Console.WriteLine("Цикл остановлен");
+                break;
+            }
+            
+            switch (text)
+            {
+                case "red":
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Black;
 
-            Console.WriteLine("Your color is green");
-        }
+                    Console.WriteLine("Your color is red!");
+                    break;
 
-        else 
-        {
-            Console.BackgroundColor = ConsoleColor.Cyan;
-            Console.ForegroundColor = ConsoleColor.Black;
+                case "green":
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Black;
 
-            Console.WriteLine("We theink that cyan is better!");
+                    Console.WriteLine("Your color is green!");
+                    break;
+
+                case "cyan":
+                    Console.BackgroundColor = ConsoleColor.Cyan;
+                    Console.ForegroundColor = ConsoleColor.Black;
+
+                    Console.WriteLine("Your color is cyan!");
+                    break;
+
+                default:
+
+                    continue;
+                    /*Console.BackgroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Black;
+
+                    Console.WriteLine("Your color is yellow!");
+                    break;*/
+            }
+         t++;
         }
     }
 }
