@@ -4,54 +4,25 @@ class MainClass
 {
     public static void Main(string[] args)
     {
-        int t = 0;
+        int sum = 0;
 
-        while (true)
+        while (true) 
         {
-            Console.WriteLine("Напишите свой любимый цвет на английском языке с маленькой буквы");
-            Console.WriteLine(t);
+            Console.Write("Insert a number: ");
+            var number = Convert.ToInt32(Console.ReadLine());
 
-            var text = Console.ReadLine();
+            if (number < 0) 
+            {
+                continue;
+            }
 
-            if (text == "stop")
-            { 
-                Console.WriteLine("Цикл остановлен");
+            else if (number == 0) 
+            {
                 break;
             }
-            
-            switch (text)
-            {
-                case "red":
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.ForegroundColor = ConsoleColor.Black;
 
-                    Console.WriteLine("Your color is red!");
-                    break;
-
-                case "green":
-                    Console.BackgroundColor = ConsoleColor.Green;
-                    Console.ForegroundColor = ConsoleColor.Black;
-
-                    Console.WriteLine("Your color is green!");
-                    break;
-
-                case "cyan":
-                    Console.BackgroundColor = ConsoleColor.Cyan;
-                    Console.ForegroundColor = ConsoleColor.Black;
-
-                    Console.WriteLine("Your color is cyan!");
-                    break;
-
-                default:
-
-                    continue;
-                    /*Console.BackgroundColor = ConsoleColor.Yellow;
-                    Console.ForegroundColor = ConsoleColor.Black;
-
-                    Console.WriteLine("Your color is yellow!");
-                    break;*/
-            }
-         t++;
+            sum += number;
+            Console.WriteLine("Final sum is {0}", sum);
         }
     }
 }
