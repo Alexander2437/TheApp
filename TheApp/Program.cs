@@ -4,25 +4,45 @@ class MainClass
 {
     public static void Main(string[] args)
     {
-        int sum = 0;
+        string[] favcolors = new string[3];
 
-        while (true) 
+        for (int i = 0; i < favcolors.Length; i++)
         {
-            Console.Write("Insert a number: ");
-            var number = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите любимый цвет номер {0}", i + 1);
+            favcolors[i] = Console.ReadLine();
+        }
 
-            if (number < 0) 
+        foreach (var color in favcolors)
+        {
+            switch (color)
             {
-                continue;
-            }
+                case "red":
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Black;
 
-            else if (number == 0) 
-            {
-                break;
-            }
+                    Console.WriteLine("Your color is red!");
+                    break;
 
-            sum += number;
-            Console.WriteLine("Final sum is {0}", sum);
+                case "green":
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Black;
+
+                    Console.WriteLine("Your color is green!");
+                    break;
+
+                case "cyan":
+                    Console.BackgroundColor = ConsoleColor.Cyan;
+                    Console.ForegroundColor = ConsoleColor.Black;
+
+                    Console.WriteLine("Your color is cyan!");
+                    break;
+                default:
+                    Console.BackgroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Black;
+
+                    Console.WriteLine("Your color is yellow!");
+                    break;
+            }
         }
     }
 }
