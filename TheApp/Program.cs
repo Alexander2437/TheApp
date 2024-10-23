@@ -1,48 +1,25 @@
 ﻿using System;
 
-class MainClass
+namespace FirstApp
 {
-    public static void Main(string[] args)
+    class Program
     {
-        string[] favcolors = new string[3];
-
-        for (int i = 0; i < favcolors.Length; i++)
+        static void Main(string[] args)
         {
-            Console.WriteLine("Введите любимый цвет номер {0}", i + 1);
-            favcolors[i] = Console.ReadLine();
-        }
+            int[,] array = { { 1, 2, 3 }, { 4, 5, 6 } };
 
-        foreach (var color in favcolors)
-        {
-            switch (color)
+            Console.Write("Количество строк: ");
+            Console.WriteLine(array.GetUpperBound(0) + 1);
+
+            Console.Write("Количество колонок: ");
+            Console.WriteLine(array.GetUpperBound(1) + 1);
+
+            /*foreach (var item in array) 
             {
-                case "red":
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.ForegroundColor = ConsoleColor.Black;
+                Console.Write(item + " ");
+            }*/
 
-                    Console.WriteLine("Your color is red!");
-                    break;
-
-                case "green":
-                    Console.BackgroundColor = ConsoleColor.Green;
-                    Console.ForegroundColor = ConsoleColor.Black;
-
-                    Console.WriteLine("Your color is green!");
-                    break;
-
-                case "cyan":
-                    Console.BackgroundColor = ConsoleColor.Cyan;
-                    Console.ForegroundColor = ConsoleColor.Black;
-
-                    Console.WriteLine("Your color is cyan!");
-                    break;
-                default:
-                    Console.BackgroundColor = ConsoleColor.Yellow;
-                    Console.ForegroundColor = ConsoleColor.Black;
-
-                    Console.WriteLine("Your color is yellow!");
-                    break;
-            }
+            Console.ReadKey();
         }
     }
 }
