@@ -6,35 +6,50 @@ namespace FirstApp
     {
         static void Main(string[] args)
         {
-            int[,] array = { { 1, 2, 3, }, { 4, 5, 6, }, {7, 8, 9 }, {10, 11, 12} };
- 
-            /*foreach (int i in array) 
+            var arr = new int[] { 5, 6, 9, 1, 2, 3, 4 };
+
+            int temp;
+
+            for (int i = 0; i < arr.Length; i++) 
             {
-                Console.Write(i + " ");
-            }*/
-            
-            //Console.WriteLine(array.Length);
-            
-            //int lines = array.GetUpperBound(0) + 1;
-            //int columns = array.GetUpperBound(1) + 1;
-
-            //Console.WriteLine("Количество строк: {0}", lines);
-            //Console.WriteLine(array.GetUpperBound(0) + 1 + " ");
-
-            //Console.Write("Количество стобцов: {0}", columns);
-            //Console.Write(array.GetUpperBound(1) +1 + " ");
-
-            Console.WriteLine();
-
-            for (int i = 0; i < array.GetUpperBound(0) + 1; i++) 
-            {
-                for (int j = 0; j < array.GetUpperBound(1) + 1; j++) 
+                for (int j = i + 1; j < arr.Length; j++) 
                 {
-                    Console.Write(array[i, j] + " ");
-                }
-                Console.WriteLine();
+                    if (arr[i] > arr[j]) 
+                    {
+                        temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                } 
+
             }
+            
+            foreach (int item in arr)
+                Console.Write(item + " ");
+
             Console.ReadKey();
+
+            /*var arr = new int[] { 5, 6, 9, 1, 2, 3, 4 };
+
+            int temp;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[i] > arr[j])
+                    {
+                        temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+
+            foreach (var item in arr)
+            {
+                Console.Write(item);
+            }*/
         }
     }
 }
