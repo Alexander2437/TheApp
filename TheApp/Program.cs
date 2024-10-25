@@ -1,55 +1,30 @@
 ﻿using System;
 
-namespace FirstApp
+class MainClass
 {
-    class Program
+    public static void Main(string[] args)
     {
-        static void Main(string[] args)
+        int[,] array = { { -5, 6, 9, 1, 2, -3 }, { -8, 8, 1, 1, 2, -3 } };
+
+        int numbers = 0;
+
+        /*for (int i = 0; i <= array.GetUpperBound(0); i++) 
         {
-            var arr = new int[] { 5, 6, 9, 1, 2, 3, 4 };
-
-            int temp;
-
-            for (int i = 0; i < arr.Length; i++) 
+            for (int j = 0; j <= array.GetUpperBound(1); j++) 
             {
-                for (int j = i + 1; j < arr.Length; j++) 
-                {
-                    if (arr[i] > arr[j]) 
-                    {
-                        temp = arr[i];
-                        arr[i] = arr[j];
-                        arr[j] = temp;
-                    }
-                } 
-
-            }
+                if(array[i, j] > 0)
+                    numbers++;
             
-            foreach (int item in arr)
-                Console.Write(item + " ");
+            
+            Console.Write(numbers);
+        }*/
 
-            Console.ReadKey();
-
-            /*var arr = new int[] { 5, 6, 9, 1, 2, 3, 4 };
-
-            int temp;
-
-            for (int i = 0; i < arr.Length; i++)
-            {
-                for (int j = i + 1; j < arr.Length; j++)
-                {
-                    if (arr[i] > arr[j])
-                    {
-                        temp = arr[i];
-                        arr[i] = arr[j];
-                        arr[j] = temp;
-                    }
-                }
-            }
-
-            foreach (var item in arr)
-            {
-                Console.Write(item);
-            }*/
+        foreach (var item in array) 
+        {
+            if (item > 0)
+                numbers++;
         }
+
+        Console.WriteLine(numbers);
     }
 }
