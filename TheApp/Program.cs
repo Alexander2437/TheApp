@@ -1,30 +1,21 @@
 ﻿using System;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 class MainClass
 {
     public static void Main(string[] args)
     {
-        int[,] array = { { -5, 6, 9, 1, 2, -3 }, { -8, 8, 1, 1, 2, -3 } };
+        //var anketa = (name : "Aleksandr", age : 36);
 
-        int numbers = 0;
+        (string name, int age) anketa;
 
-        /*for (int i = 0; i <= array.GetUpperBound(0); i++) 
-        {
-            for (int j = 0; j <= array.GetUpperBound(1); j++) 
-            {
-                if(array[i, j] > 0)
-                    numbers++;
-            
-            
-            Console.Write(numbers);
-        }*/
+        Console.WriteLine("Введите ваше имя: ");
+        anketa.name = Console.ReadLine();
 
-        foreach (var item in array) 
-        {
-            if (item > 0)
-                numbers++;
-        }
+        Console.WriteLine("Введите свой возраст: ");
+        anketa.age = Convert.ToInt32(Console.ReadLine());
 
-        Console.WriteLine(numbers);
+        Console.WriteLine("Ваше имя: {0}", anketa.name);
+        Console.WriteLine("Ваш возраст: {0}", anketa.age);
     }
 }
