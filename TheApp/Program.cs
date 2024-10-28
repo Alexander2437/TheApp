@@ -7,15 +7,26 @@ class MainClass
     {
         //var anketa = (name : "Aleksandr", age : 36);
 
-        (string name, int age) anketa;
+        var (name, age) = ("Евгения", 27);
+        //Console.WriteLine("Ваше имя: {0}", name);
+        //Console.WriteLine("Ваш возраст: {0}", age);
 
-        Console.WriteLine("Введите ваше имя: ");
-        anketa.name = Console.ReadLine();
+        Console.WriteLine($"Мое имя: {name}.\nМой возраст: {age}.");
 
-        Console.WriteLine("Введите свой возраст: ");
-        anketa.age = Convert.ToInt32(Console.ReadLine());
+        //(string name, int age) anketa;
 
-        Console.WriteLine("Ваше имя: {0}", anketa.name);
-        Console.WriteLine("Ваш возраст: {0}", anketa.age);
+        Console.Write("Введите ваше имя: ");
+        name = Console.ReadLine();
+
+        Console.Write("Введите свой возраст: ");
+        age = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Ваше имя: {0}", name);
+        Console.WriteLine("Ваш возраст: {0}", age);
+
+        //Console.WriteLine("Ваше имя: {0}", anketa.Item1);
+        //Console.WriteLine("Ваш возраст: {0}", anketa.Item2);
+
+        Console.ReadKey();
     }
 }
