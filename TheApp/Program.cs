@@ -5,27 +5,17 @@ class MainClass
 {
     public static void Main(string[] args)
     {
-        //var anketa = (name : "Aleksandr", age : 36);
+        (string Name, string Type, double Age, int NameCount) Pet;
 
-        var (name, age) = ("Евгения", 27);
-        //Console.WriteLine("Ваше имя: {0}", name);
-        //Console.WriteLine("Ваш возраст: {0}", age);
+        Console.WriteLine("Укажите тип питомца: ");
+        Pet.Type = Console.ReadLine();
+        Console.WriteLine("Укажите имя питомца: ");
+        Pet.Name = Console.ReadLine();
+        Pet.NameCount = Pet.Name.Length;
+        Console.WriteLine("Укажите возраст питомца: ");
+        Pet.Age = Convert.ToDouble(Console.ReadLine());
 
-        Console.WriteLine($"Мое имя: {name}.\nМой возраст: {age}.");
-
-        //(string name, int age) anketa;
-
-        Console.Write("Введите ваше имя: ");
-        name = Console.ReadLine();
-
-        Console.Write("Введите свой возраст: ");
-        age = Convert.ToInt32(Console.ReadLine());
-
-        Console.WriteLine("Ваше имя: {0}", name);
-        Console.WriteLine("Ваш возраст: {0}", age);
-
-        //Console.WriteLine("Ваше имя: {0}", anketa.Item1);
-        //Console.WriteLine("Ваш возраст: {0}", anketa.Item2);
+        Console.WriteLine("Тип вашего питомца: {0}.\nИмя вашего питомца: {1}.\nДлина имени вашего питомца: {2}.\nВозраст вашего питомца: {3}", Pet.Type, Pet.Name, Pet.NameCount, Pet.Age);
 
         Console.ReadKey();
     }
