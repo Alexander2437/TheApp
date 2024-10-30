@@ -5,18 +5,47 @@ class MainClass
 {
     public static void Main(string[] args)
     {
-        (string Name, string Type, double Age, int NameCount) Pet;
+        (string name, string surname, string login, int LoginLength, string password, bool PetIsPresent, int age, string[] FavColors) user;
 
-        Console.WriteLine("Укажите тип питомца: ");
-        Pet.Type = Console.ReadLine();
-        Console.WriteLine("Укажите имя питомца: ");
-        Pet.Name = Console.ReadLine();
-        Pet.NameCount = Pet.Name.Length;
-        Console.WriteLine("Укажите возраст питомца: ");
-        Pet.Age = Convert.ToDouble(Console.ReadLine());
+        for (int j = 0; j < 3; j++)
+        {
+            Console.Write("Введите имя пользователя: ");
+            user.name = Console.ReadLine();
 
-        Console.WriteLine("Тип вашего питомца: {0}.\nИмя вашего питомца: {1}.\nДлина имени вашего питомца: {2}.\nВозраст вашего питомца: {3}", Pet.Type, Pet.Name, Pet.NameCount, Pet.Age);
+            Console.Write("Введиде фамилию пользователя: ");
+            user.surname = Console.ReadLine();
 
-        Console.ReadKey();
+            Console.Write("Придумайте логин: ");
+            user.login = Console.ReadLine();
+            user.LoginLength = user.login.Length;
+
+            Console.WriteLine(user.LoginLength);
+
+            Console.Write("Придумайте пароль: ");
+            user.password = Console.ReadLine();
+
+            Console.Write("Наличие питомца. Укажите \u0022да\u0022 или \u0022нет\u0022: ");
+            var Answer = Console.ReadLine();
+            if (Answer == "да")
+            {
+                user.PetIsPresent = true;
+                //Console.WriteLine("У вас есть питомец.");
+            }
+            else
+            {
+                user.PetIsPresent = false;
+                //Console.WriteLine("У вас нет пиомца.");
+            }
+
+            Console.Write("Укажите ваш возраст: ");
+            user.age = int.Parse(Console.ReadLine());
+
+            Console.Write("Укажите три своих любимых цвета: ");
+            user.FavColors = new string[3];
+            for (int i = 0; i < user.FavColors.Length; i++)
+            {
+                user.FavColors[i] = Console.ReadLine();
+            }
+        }
     }
 }
