@@ -19,7 +19,7 @@ class MainClass
             user.login = Console.ReadLine();
             user.LoginLength = user.login.Length;
 
-            Console.WriteLine(user.LoginLength);
+            Console.WriteLine("Длина логина: {0}", user.LoginLength);
 
             Console.Write("Придумайте пароль: ");
             user.password = Console.ReadLine();
@@ -40,7 +40,7 @@ class MainClass
             Console.Write("Укажите ваш возраст: ");
             user.age = int.Parse(Console.ReadLine());
 
-            Console.Write("Укажите три своих любимых цвета: ");
+            Console.WriteLine("Укажите три своих любимых цвета: ");
             user.FavColors = new string[3];
             for (int i = 0; i < user.FavColors.Length; i++)
             {
