@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 class Program
@@ -7,10 +8,18 @@ class Program
     {
         string[] favcolors = new string[3];
 
+        Console.WriteLine("Введите три ваших любимых цвета на английском с маленькой буквы:");
+
         for (int i = 0; i < favcolors.Length; i++) 
         {
-            Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы: ");
             favcolors[i] = ShowColor();
+        }
+        
+        Console.WriteLine("Ваши любимые цвета:");
+
+        foreach (var Color in favcolors) 
+        {
+            Console.WriteLine(Color);
         }
     }
 
