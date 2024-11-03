@@ -6,55 +6,40 @@ class Program
 {
     public static void Main(string[] args)
     {
-        string[] favcolors = new string[3];
-
-        Console.WriteLine("Введите три ваших любимых цвета на английском с маленькой буквы:");
-
-        for (int i = 0; i < favcolors.Length; i++) 
-        {
-            favcolors[i] = ShowColor();
-        }
-        
-        Console.WriteLine("Ваши любимые цвета:");
-
-        foreach (var Color in favcolors) 
-        {
-            Console.WriteLine(Color);
-        }
+        GetArrayFromConsole();
     }
 
-    static string ShowColor()
+    static int[] GetArrayFromConsole() 
     {
-        var color = Console.ReadLine();
+        int[] result = new int[5];
 
-        switch (color)
+        for (int i = 0; i < result.Length; i++) 
         {
-            case "red":
-                Console.BackgroundColor = ConsoleColor.Red;
-                Console.ForegroundColor = ConsoleColor.Black;
-
-                Console.WriteLine("Your color is red!");
-                break;
-
-            case "green":
-                Console.BackgroundColor = ConsoleColor.Green;
-                Console.ForegroundColor = ConsoleColor.Black;
-
-                Console.WriteLine("Your color is green!");
-                break;
-            case "cyan":
-                Console.BackgroundColor = ConsoleColor.Cyan;
-                Console.ForegroundColor = ConsoleColor.Black;
-
-                Console.WriteLine("Your color is cyan!");
-                break;
-            default:
-                Console.BackgroundColor = ConsoleColor.Yellow;
-                Console.ForegroundColor = ConsoleColor.Red;
-
-                Console.WriteLine("Your color is yellow!");
-                break;
+            Console.WriteLine("Введите элемент массива номер: {0}", i + 1);
+            result[i] = int.Parse(Console.ReadLine());
         }
-        return color;
+
+        int temp = 0;
+        for (int i = 0; i < result.Length; i++)
+        {
+            for (int j = i + 1; j < result.Length; j++)
+            {
+                if (result[i] > result[j])
+                {
+                    temp = result[j];
+                    result[i] = result[j];
+                    result[j] = temp;
+                }
+            }
+        }
+
+        Console.WriteLine();
+
+        for (int i = 0; i < result.Length; i++)
+        {
+            Console.WriteLine(result[i]);
+        }
+
+        return result;
     }
 }
