@@ -3,9 +3,9 @@
 class MainClass
 {
 
-    static string ShowColor(string username)
+    static string ShowColor(string username, int userage)
     {
-        Console.WriteLine($"{username}, напишите свой любимый цвет на английском с маленькой буквы.");
+        Console.WriteLine($"{username}, {userage} лет,\nнапишите свой любимый цвет на английском с маленькой буквы.");
         var color = Console.ReadLine();
 
         switch (color)
@@ -33,7 +33,7 @@ class MainClass
                 Console.BackgroundColor = ConsoleColor.Yellow;
                 Console.ForegroundColor = ConsoleColor.Red;
 
-                Console.WriteLine("Your color is yellow!");
+                Console.WriteLine("Wrong! Try again!");
                 break;
         }
         return color;
@@ -58,7 +58,7 @@ class MainClass
         var array = new string[3];
         for (int i = 0; i < array.Length; i++)
         {
-            array[i] = ShowColor(name);
+            array[i] = ShowColor(name, age);
         }
 
         foreach (var color in array)
