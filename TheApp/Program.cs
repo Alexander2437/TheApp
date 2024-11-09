@@ -2,82 +2,39 @@
 
 class Program
 {
+    static int num1 = 667;
     public static void Main(string[] args)
     {
-        int[] array = GetArrayFromConsole(10);
-        ShowArray(array, true);
+        Console.WriteLine("Напишите что-то");
+        var str = Console.ReadLine();
+
+        Console.WriteLine("Укажите глубину эха");
+        var deep = int.Parse(Console.ReadLine());
+
+        Echo(str, deep);
+
+        Console.ReadKey();
+
+        /*string s = "abc---def";
+
+        Console.WriteLine("Index: 012345678");
+        Console.WriteLine("1)     {0}", s);
+        Console.WriteLine("2)     {0}", s.Remove(6));
+        Console.WriteLine("3)     {0}", s.Remove(0, 2));*/
     }
 
-    static void ShowArray(int[] array, bool IsSort = false) 
+    static void Echo(string saidword, int deep)
     {
-        var temp = array;
-        if (IsSort == true) 
-        {
-            temp = SortArray(array);
-        }
+        var modif = saidword;
 
-        foreach (int item in temp)
-        {
-            Console.Write(item + " ");
-        }
-    } 
+        if (modif.Length > 2)
+            modif = modif.Remove(0, 2);
+        
+        Console.BackgroundColor = ConsoleColor.Red;
+        Console.ForegroundColor = ConsoleColor.Black;
+        Console.WriteLine("..." + modif);
 
-    static int[] GetArrayFromConsole(int num = 5)
-    {
-        var arraytoobtain = new int[num];
-
-        for (int i = 0; i < arraytoobtain.Length; i++)
-        {
-            Console.WriteLine("Введите элемент массива номер {0}", i + 1);
-            arraytoobtain[i] = int.Parse(Console.ReadLine());
-        }
-
-        //SortArray(arraytoobtain);
-
-        return arraytoobtain;
-    }
-
-    static int[] SortArray(int[] arraytosort)
-    {
-        int temp = 0;
-
-        for (int i = 0; i < arraytosort.Length; i++)
-            for (int t = i + 1; t < arraytosort.Length; t++)
-            {
-                if (arraytosort[i] > arraytosort[t])
-                {
-                    temp = arraytosort[i];
-                    arraytosort[i] = arraytosort[t];
-                    arraytosort[t] = temp;
-                }
-            }
-
-        //PrintArray(arraytosort);
-
-        return arraytosort;
-    }
-
-    static int[] PrintArray(int[] arraytoprint)
-    {
-        foreach (int item in arraytoprint)
-            Console.Write(item + "\t");
-
-        return arraytoprint;
-    }
-
-    static void SortComplexArray(int[,] arr)
-    {
-        int temp;
-        for (int i = 0; i <= arr.GetUpperBound(0); i++)
-        {
-            for (int j = 0; j <= arr.GetUpperBound(1); j++)
-                for (int k = j + 1; k <= arr.GetUpperBound(1); k++)
-                    if (arr[i, j] > arr[i, k])
-                    {
-                        temp = arr[i, k];
-                        arr[i, k] = arr[i, j];
-                        arr[i, j] = temp;
-                    }
-        }
+        if (deep > 1)
+            Echo(modif, deep - 1);
     }
 }
