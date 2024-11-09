@@ -1,83 +1,30 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 class Program
 {
     public static void Main(string[] args)
     {
-        int[] array = GetArrayFromConsole(10);
-        ShowArray(array, true);
+        int vysota;
+        int shyrina;
+
+        Console.Write("Укажите длину прямоугольника: ");
+        shyrina = int.Parse(Console.ReadLine());
+        Console.Write("Укажите высоту прямоугольника: ");
+        vysota = int.Parse(Console.ReadLine());
+       
+        GetRectangleData(shyrina, vysota, out int area, out int perimetr);
+        
+        Console.WriteLine("Площадь прямоугольника: {0}", area);
+        Console.WriteLine("Периметр прямоугольника: {0}", perimetr);
     }
 
-    static void ShowArray(int[] array, bool IsSort = false) 
+    static void GetRectangleData(int width, int hight, out int RectArea, out int RectPerimetr)
     {
-        var temp = array;
-        if (IsSort == true) 
-        {
-            temp = SortArray(array);
-        }
-
-        foreach (int item in temp)
-        {
-            Console.Write(item + " ");
-        }
-    } 
-
-    static int[] GetArrayFromConsole(int num = 5)
-    {
-        var arraytoobtain = new int[num];
-
-        for (int i = 0; i < arraytoobtain.Length; i++)
-        {
-            Console.WriteLine("Введите элемент массива номер {0}", i + 1);
-            arraytoobtain[i] = int.Parse(Console.ReadLine());
-        }
-
-        //SortArray(arraytoobtain);
-
-        return arraytoobtain;
+        width++;
+        hight++;
+        RectArea = width * hight;
+        RectPerimetr = (width + hight) * 2;
     }
 
-    static int[] SortArray(int[] arraytosort)
-    {
-        int temp = 0;
-
-        for (int i = 0; i < arraytosort.Length; i++)
-            for (int t = i + 1; t < arraytosort.Length; t++)
-            {
-                if (arraytosort[i] > arraytosort[t])
-                {
-                    temp = arraytosort[i];
-                    arraytosort[i] = arraytosort[t];
-                    arraytosort[t] = temp;
-                }
-            }
-
-        //PrintArray(arraytosort);
-
-        return arraytosort;
-    }
-
-    static int[] PrintArray(int[] arraytoprint)
-    {
-        foreach (int item in arraytoprint)
-            Console.Write(item + "\t");
-
-        return arraytoprint;
-    }
-
-    static void SortComplexArray(int[,] arr)
-    {
-        int temp;
-        for (int i = 0; i <= arr.GetUpperBound(0); i++)
-        {
-            for (int j = 0; j <= arr.GetUpperBound(1); j++)
-                for (int k = j + 1; k <= arr.GetUpperBound(1); k++)
-                    if (arr[i, j] > arr[i, k])
-                    {
-                        temp = arr[i, k];
-                        arr[i, k] = arr[i, j];
-                        arr[i, j] = temp;
-                    }
-        }
-    }
 }
