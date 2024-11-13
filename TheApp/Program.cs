@@ -4,29 +4,29 @@ class Program
 {
     public static void Main(string[] args)
     {
-        Console.Write("Введите основание: ");
-        int num = int.Parse(Console.ReadLine());
-        Console.Write("Введите показатель степени: ");
-        byte power = byte.Parse(Console.ReadLine());
-
-        Console.WriteLine($"Число {num} в степени {power} равно: {PowerUp(num, power)}");
+        
     }
-    private static int PowerUp(int N, byte pow)
+}
+
+class Human
+{
+    public string name;
+    public int age;
+
+    public void Greetings()
     {
-        if (pow == 0)
+        Console.WriteLine("Здравствуйте, меня зовут {0}, мне {1}.", name, age);
+    }
+
+    struct Animal
+    {
+        public string type;
+        public string name;
+        public int age;
+
+        public void Info()
         {
-            return 1;
-        }
-        else
-        {
-            if (pow == 1)
-            {
-                return N;
-            }
-            else
-            {
-                return N * PowerUp(N, --pow);
-            }
+            Console.WriteLine("Это {0} по кличке {1}, ему {2}", type, name, age);
         }
     }
 }
