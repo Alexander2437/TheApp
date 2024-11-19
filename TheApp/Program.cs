@@ -5,17 +5,45 @@ class Program
 {
     public static void Main(string[] args)
     {
-
-
-        GetUserData();
+        var userInfo = GetUserData();
+        ShowUserData(userInfo);
     }
 
-    public static void GetUserData()
+    public static void ShowUserData((string name, string lastname, int age, bool hasPet, int petCount, string[] petNames, string[] favColors) UserData)
+        {
+            Console.WriteLine("Имя пользователя: {0}", UserData.name);
+            Console.WriteLine("Фамилия пользователя: {0}", UserData.lastname);
+            Console.WriteLine("Возраст пользователя: {0}", UserData.age);
+            
+            string hasPet;  
+            int petCount;
+            if (UserData.hasPet == true)
+            {
+                hasPet = "да";
+                Console.Write("Наличие питомца: {0}", hasPet);
+                petCount = UserData.petCount;
+                Console.WriteLine("Количество питомцев: {0}", petCount);
+            }
+            else
+            {
+                hasPet = "нет";
+                Console.WriteLine("Наличие питомца: {0}", hasPet);
+            }
+
+            for (int i = 0; i < UserData.petNames.Length; i++)
+            {
+                Console.WriteLine("Имя питомца номер {0} - {1}", i + 1, UserData.petNames[i]);
+            }
+
+            for (int i = 0; i < UserData.favColors.Length; i++)
+            {
+                Console.WriteLine("Любимый цвет номер {0} - {1}", i + 1, UserData.favColors[i]);
+            }
+    }
+    public static (string name, string lastname, int age, bool hasPet, int petCount, string[] petNames, string[] favColors) GetUserData()
     {
         var name = EnterData("имя пользователя");
         var lastname = EnterData("фамилию пользователя");
-        //var color = EnterData("любимый цвет");
-        //
         int age = EnterNumber("возраст пользователя");
        
         Console.WriteLine("Наличие питомца. Укажите да или нет.");
@@ -32,9 +60,11 @@ class Program
             petCount = EnterNumber("количество питомцев");
         }
 
+        string[] petNames = SetArray(petCount, "кличку питомца");
+
         int favColorsNumber = EnterNumber("количество любимых цветов");
 
-        string[] petNames = EnterPetNames(petCount); 
+        string[] favColors = SetArray(favColorsNumber, "любимый цвет");
 
         (string name, string lastname, int age, bool hasPet, int petCount, string[] petNames, string[] favColors) UserData;
 
@@ -44,26 +74,18 @@ class Program
         UserData.hasPet = hasPet;
         UserData.petCount = petCount;
         UserData.petNames = petNames;
+        UserData.favColors = favColors;
 
+        return UserData;
     }
 
-    private static string[] EnterFavColors(int arraySize)
+    private static string[] SetArray(int arraySize, string text)
     {
+        
         string[] result = new string[arraySize];
         for (int i = 0; i < arraySize; i++)
         {
-            var arrayValue = EnterData("любимый цвет");
-            result[i] = arrayValue;
-        }
-        return result;
-    }
-
-    private static string[] EnterPetNames(int arraySize)
-    {
-        string[] result = new string[arraySize];
-        for (int i = 0; i < arraySize; i++)
-        {
-            var arrayValue = EnterData("кличку питомца");
+            var arrayValue = EnterData(text);
             result[i] = arrayValue;
         }
         return result;
