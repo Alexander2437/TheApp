@@ -15,24 +15,19 @@ class Program
             Console.WriteLine("Фамилия пользователя: {0}", UserData.lastname);
             Console.WriteLine("Возраст пользователя: {0}", UserData.age);
             
-            string hasPet;  
-            int petCount;
             if (UserData.hasPet == true)
             {
-                hasPet = "да";
-                Console.Write("Наличие питомца: {0}", hasPet);
-                petCount = UserData.petCount;
-                Console.WriteLine("Количество питомцев: {0}", petCount);
+                Console.WriteLine("Наличие питомца: да");
+                Console.WriteLine("Количество питомцев: {0}", UserData.petCount);
+
+                for (int i = 0; i < UserData.petNames.Length; i++)
+                {
+                 Console.WriteLine("Имя питомца номер {0} - {1}", i + 1, UserData.petNames[i]);
+                }
             }
             else
             {
-                hasPet = "нет";
-                Console.WriteLine("Наличие питомца: {0}", hasPet);
-            }
-
-            for (int i = 0; i < UserData.petNames.Length; i++)
-            {
-                Console.WriteLine("Имя питомца номер {0} - {1}", i + 1, UserData.petNames[i]);
+                Console.WriteLine("Наличие питомца: нет");
             }
 
             for (int i = 0; i < UserData.favColors.Length; i++)
