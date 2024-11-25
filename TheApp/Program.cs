@@ -5,35 +5,54 @@ class Program
 {
     static void Main(string[] args)
     {
-        var department = GetCurrentDepartment();
-        string companyType = department?.Company?.Type;
-        string companyCity = department?.City?.Name;
-        string companyName = department?.Company?.Name ?? "Неизвестная компания";
-        if (companyType?.ToLower() == "Банк".ToLower() &&  companyCity?.ToLower() == "Санкт-Петербург".ToLower())
-        {
-            Console.WriteLine("\"У банка {0} есть отделение в Санкт-Петербурге\"", companyName);
-        }
+        
     }
+}
 
-    static Department GetCurrentDepartment()
+class Circle
+{
+    public int x;
+
+    public void GetArea()
     {
-        // logic
+
+    }
+
+    public void GetPerimetr()
+    {
+
     }
 }
 
-class Company
+class Square
 {
-    public string Type;
-    public string Name;
+    public double radius;
+
+    public double Area()
+    {
+
+    }
+
+    public double Perimetr()
+    {
+
+    }
 }
 
-class Department
+class Triangle
 {
-    public Company Company;
-    public City City;
-}
 
-class City
-{
-    public string Name;
+    public int x;
+    public int y;
+    public int z;
+
+    public double Area()
+    {
+
+    }
+
+    public double Perimetr()
+    {
+
+    }
 }
