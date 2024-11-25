@@ -5,35 +5,35 @@ class Program
 {
     static void Main(string[] args)
     {
-        Employee employee = new Employee();
-        
-        //Department department = new Department();
-        //employee.Department = department;
-        
-        //employee.Department = new Department();
+        var department = GetCurrentDepartment();
+        string companyType = department?.Company?.Type;
+        string companyCity = department?.City?.Name;
+        string companyName = department?.Company?.Name ?? "Неизвестная компания";
+        if (companyType?.ToLower() == "Банк".ToLower() &&  companyCity?.ToLower() == "Санкт-Петербург".ToLower())
+        {
+            Console.WriteLine("\"У банка {0} есть отделение в Санкт-Петербурге\"", companyName);
+        }
+    }
 
-        //employee.City = "Moscow";
-
-        //string x = employee.City;
-
-        //string companyname = employee.department.company.name;
-
-        string name = employee.Department.Company.Name;
+    static Department GetCurrentDepartment()
+    {
+        // logic
     }
 }
 
-public class Employee
+class Company
 {
-    public Department Department;
-    public string City;
+    public string Type;
+    public string Name;
 }
 
-public class Department
+class Department
 {
     public Company Company;
+    public City City;
 }
 
-public class Company
+class City
 {
     public string Name;
 }
