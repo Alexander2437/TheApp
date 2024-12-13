@@ -2,7 +2,7 @@
   "profiles": {
     "TheApp": {
       "commandName": "Project",
-      "commandLineArgs": ""
+      "commandLineArgs": "param1 param2 param3"
     }
   }
 }
